@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+Post Detail Page
+{% endblock %}
+
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+        {% endfor %}
+</ul>
+{% endif %}
+
+
+
+<div class="row">
+    <div class="card col-md-8 offset-md-2" >
+       <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+       <div class="card-body">
+         <h5 class="card-title">{{ post.title }} <small> {{ post.published_date }} </small> </h5>
+         <p class="card-text">{{ post.content }}</p>
+         <!-- <a href="{{ post.get_absolute_url }}" class="btn btn-primary">View Post</a> -->
+       </div>
+     </div> <br>
+     <div class="card col-md-1 offset-md-2">
+        <a  href="{% url 'index' %}" class="btn btn-danger"> back </a> <br>
+        </div>
+</div>
+
+
+
+
+
+{% endblock %}
